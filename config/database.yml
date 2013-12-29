@@ -1,25 +1,16 @@
-development:
+default: &default
   adapter: postgresql
-  database: sample_app_development
   encoding: unicode
-  user: sample_app
-  host: localhost
   pool: 5
-  timeout: 5000
 
+development:
+  <<: *default
+  database: sample_app_development
 
 test:
-  adapter: postgresql
+  <<: *default
   database: sample_app_test
-  encoding: unicode
-  user: sample_app
-  host: localhost
-  pool: 5
-  timeout: 5000
 
 production:
-  adapter: postgresql
+  <<: *default
   database: sample_app_production
-  encoding: unicode
-  pool: 5
-  timeout: 5000
